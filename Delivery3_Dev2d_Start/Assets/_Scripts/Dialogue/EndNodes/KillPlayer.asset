@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80ddadc444a563446b3644ffe39f86e8, type: 3}
-  m_Name: FirstTalk
+  m_Script: {fileID: 11500000, guid: 712d356524b234343aac027539fe963c, type: 3}
+  m_Name: KillPlayer
   m_EditorClassIdentifier: 
-  Name: Shopkeeper
-  StartNode: {fileID: 11400000, guid: 298920a47a3c38043bb60bf85b006365, type: 2}
+  SpeechText: 
+  Options: []

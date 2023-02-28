@@ -88,7 +88,7 @@ public class DialogueManager : MonoBehaviour
             ShowNode(nextNode);
             _currentNode = nextNode;
         }
-        
+
     }
 
 }

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96941978660cb1e45b23a2fc362e185a, type: 3}
+  m_Name: RegretTalk
+  m_EditorClassIdentifier: 
+  SpeechText: Wait, what do you really want?
+  Options:
+  - Text: I want to buy
+    NextNode: {fileID: 11400000, guid: f872b3c18a9535e4b879ef66c3476d09, type: 2}
+  - Text: I want to sell
+    NextNode: {fileID: 11400000, guid: a7460d7296c97f346b29241a9c9d87f5, type: 2}
+  - Text: I told you already
+    NextNode: {fileID: 11400000, guid: 803df11fd78fae7419aa620507c16f4b, type: 2}

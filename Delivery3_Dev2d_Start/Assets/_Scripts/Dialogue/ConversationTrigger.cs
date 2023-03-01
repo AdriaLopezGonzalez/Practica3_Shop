@@ -5,6 +5,7 @@ using UnityEngine;
 public class ConversationTrigger : MonoBehaviour
 {
     public Conversation DialogueData;
+    public Conversation DialogueDataAfterTransaction;
 
     private void Start()
     {
@@ -14,5 +15,10 @@ public class ConversationTrigger : MonoBehaviour
     public void StartDialogue()
     {
         DialogueManager.StartDialogue(DialogueData, gameObject);
+    }
+
+    public void StartDialogueAfterTransaction()
+    {
+        DialogueManager.StartDialogue(DialogueDataAfterTransaction, gameObject);
     }
 }

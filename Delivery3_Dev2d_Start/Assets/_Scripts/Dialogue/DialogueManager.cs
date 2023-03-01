@@ -83,10 +83,10 @@ public class DialogueManager : MonoBehaviour
             endNode.Finish(_talker);
             Hide();
 
-            //for (int i = 0; i < Options.Length; i++)
-            //{
-            //    Options[i].transform.parent.gameObject.SetActive(false);
-            //}
+            for (int i = 0; i < Options.Length; i++)
+            {
+                Options[i].transform.parent.gameObject.SetActive(false);
+            }
         }
         else
         {

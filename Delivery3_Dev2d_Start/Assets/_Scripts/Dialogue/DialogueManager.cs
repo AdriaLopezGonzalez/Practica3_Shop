@@ -82,6 +82,11 @@ public class DialogueManager : MonoBehaviour
             EndNode endNode = nextNode as EndNode;
             endNode.Finish(_talker);
             Hide();
+
+            //for (int i = 0; i < Options.Length; i++)
+            //{
+            //    Options[i].transform.parent.gameObject.SetActive(false);
+            //}
         }
         else
         {

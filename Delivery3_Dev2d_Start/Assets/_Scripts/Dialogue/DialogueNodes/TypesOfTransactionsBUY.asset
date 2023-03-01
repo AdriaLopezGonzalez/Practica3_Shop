@@ -15,8 +15,8 @@ MonoBehaviour:
   SpeechText: What do you wanna buy?
   Options:
   - Text: Weapons
-    NextNode: {fileID: 11400000, guid: f469b100759192944bdd321dbe372ded, type: 2}
+    NextNode: {fileID: 11400000, guid: afa8ebca1a0632144a3954c6da9f80b0, type: 2}
   - Text: Potions
-    NextNode: {fileID: 11400000, guid: f469b100759192944bdd321dbe372ded, type: 2}
+    NextNode: {fileID: 11400000, guid: b3e11b613de18664d876b0348fc4e548, type: 2}
   - Text: Food
-    NextNode: {fileID: 11400000, guid: f469b100759192944bdd321dbe372ded, type: 2}
+    NextNode: {fileID: 11400000, guid: 4b10393f71fa12b4697f834d08cce66a, type: 2}

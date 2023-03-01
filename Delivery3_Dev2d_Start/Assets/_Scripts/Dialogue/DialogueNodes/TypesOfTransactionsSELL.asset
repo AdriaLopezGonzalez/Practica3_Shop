@@ -15,8 +15,8 @@ MonoBehaviour:
   SpeechText: What do you wanna sell?
   Options:
   - Text: Weapons
-    NextNode: {fileID: 11400000, guid: f469b100759192944bdd321dbe372ded, type: 2}
+    NextNode: {fileID: 11400000, guid: bfc156bb01273bd4d9e3a4e3959ff50e, type: 2}
   - Text: Potions
-    NextNode: {fileID: 11400000, guid: f469b100759192944bdd321dbe372ded, type: 2}
+    NextNode: {fileID: 11400000, guid: 5df0afcc43600dc4f9eaeac964b24f96, type: 2}
   - Text: Food
-    NextNode: {fileID: 11400000, guid: f469b100759192944bdd321dbe372ded, type: 2}
+    NextNode: {fileID: 11400000, guid: 4d9c9c6dba518f24a899121ebbf4c9b9, type: 2}

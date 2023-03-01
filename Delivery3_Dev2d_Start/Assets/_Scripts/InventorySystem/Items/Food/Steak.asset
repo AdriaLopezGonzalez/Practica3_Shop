@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 902ac7f98c4cee84db285b174e2d98a7, type: 3}
+  m_Name: Steak
+  m_EditorClassIdentifier: 
+  Name: Steak
+  ImageUI: {fileID: 6288798748262579900, guid: f0dad579ebaa13a4a86b44e1bd88ba8c, type: 3}
+  IsStackable: 1

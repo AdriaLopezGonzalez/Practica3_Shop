@@ -14,4 +14,5 @@ public class DialogueOptions
 {
     public string Text;
     public DialogueNode NextNode;
+
 }

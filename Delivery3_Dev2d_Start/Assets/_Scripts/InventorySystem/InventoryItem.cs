@@ -8,4 +8,6 @@ public class InventoryItem : ScriptableObject
     public string Name;
     public Sprite ImageUI;
     public bool IsStackable;
+    public ProductType Type;
+    public int prize;
 }

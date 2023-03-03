@@ -6,14 +6,15 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "SetShop", menuName = "Dialogue/EndNodes/SetShop", order = 0)]
 public class EndNode_SetShop : EndNode
 {
-    public static Action<EndNode_SetShop> ShowInventories;
+    public static Action ShowInventories;
+    public static Action<ShopFeatures> SetShopConditions;
     public ShopFeatures Features;
 
     public override void Finish(GameObject talker)
     {
         base.Finish(talker);
-        ShowInventories?.Invoke(this);
-
+        ShowInventories?.Invoke();
+        SetShopConditions?.Invoke(Features);
     }
 }
 
@@ -21,8 +22,12 @@ public class EndNode_SetShop : EndNode
 public class ShopFeatures
 {
     public bool toBuy;
-    public int whatToSell;
-    //0 = Weapons
-    //1 = Potions
-    //2 = Food
+    public ProductType whatToSell;
+}
+
+public enum ProductType
+{
+    Weapons,
+    Potions,
+    Food
 }

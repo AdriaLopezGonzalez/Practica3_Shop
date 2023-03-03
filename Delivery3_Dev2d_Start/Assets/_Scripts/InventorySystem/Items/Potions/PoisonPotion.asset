@@ -16,3 +16,5 @@ MonoBehaviour:
   ImageUI: {fileID: -4471156939186168067, guid: f0dad579ebaa13a4a86b44e1bd88ba8c,
     type: 3}
   IsStackable: 1
+  Type: 1
+  prize: 50

@@ -15,10 +15,12 @@ public class InventoryUI : MonoBehaviour
     private void OnEnable()
     {
         Inventory.OnInventoryChanged += UpdateInventory;
+        InventoryManager.UpdateInventory += UpdateInventory;
     }
     private void OnDisable()
     {
         Inventory.OnInventoryChanged -= UpdateInventory;
+        InventoryManager.UpdateInventory -= UpdateInventory;
     }
 
     private void UpdateInventory()
@@ -34,12 +36,6 @@ public class InventoryUI : MonoBehaviour
             Destroy(item);
         }
         UISlots.Clear();
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        //Show(Inventory);
     }
 
     void Show(Inventory inventory)

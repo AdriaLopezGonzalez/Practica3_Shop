@@ -56,13 +56,11 @@ public class InventorySlotUI : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         }
 
 
-        RaycastHit2D rayData = Physics2D.GetRayIntersection(
-            Camera.main.ScreenPointToRay(Input.mousePosition));
-
-        Debug.Log(rayData.transform);
+        RaycastHit2D rayData = Physics2D.Raycast(transform.position, -Vector2.up);
 
         if (rayData)
         {
+            Debug.Log("que estoy tocando? " + rayData.transform);
             //saber las shop features
             ShopFeatures currentFeatures = _canvas.GetComponent<InventoryManager>().CurrentFeatures;
             if (CheckItemDrop(currentFeatures, transform.gameObject, rayData))
@@ -89,11 +87,10 @@ public class InventorySlotUI : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
     private bool CheckItemDrop(ShopFeatures currentFeatures, GameObject dropObject, RaycastHit2D rayData)
     {
-        Debug.Log(rayData.transform);
         var possibleDrop = rayData.transform.GetComponent<InventoryUI>();
         bool isAnInventory = possibleDrop != null;
         bool isADifferentInventory = possibleDrop != _mama.GetComponent<InventoryUI>();
-        Debug.Log(isADifferentInventory);
+        Debug.Log("es diferente a de donde vengo? "+isADifferentInventory);
         //comprobar si donde dejo el objeto se puede dejar(estamos vendiendo o comprando)
         //comprobar tambien si es tipo de objeto correcto
 

@@ -9,6 +9,8 @@ public class InventoryUI : MonoBehaviour
     Inventory Inventory;
     [SerializeField]
     InventorySlotUI SlotPrefab;
+    [SerializeField]
+    bool isPlayerInventory;
 
     private List<GameObject> UISlots = new List<GameObject>();
 

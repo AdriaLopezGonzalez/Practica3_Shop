@@ -88,10 +88,24 @@ public class InventorySlotUI : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     private bool CheckItemDrop(ShopFeatures currentFeatures, GameObject dropObject, RaycastHit2D rayData)
     {
         var possibleDrop = rayData.transform.GetComponent<InventoryUI>();
+
         bool isAnInventory = possibleDrop != null;
+
         bool isADifferentInventory = possibleDrop != _mama.GetComponent<InventoryUI>();
         Debug.Log("es diferente a de donde vengo? "+isADifferentInventory);
+
+        bool droppingInRightInventory;
+        if (currentFeatures.toBuy)
+        {
+            droppingInRightInventory = possibleDrop.nidea == inventoryplayer;
+        }
+        else
+        {
+            droppingInRightInventory = possibleDrop.nidea == inventoryshop;
+        }
         //comprobar si donde dejo el objeto se puede dejar(estamos vendiendo o comprando)
+
+        bool correctProductType = currentFeatures.whatToSell == dropObject.
         //comprobar tambien si es tipo de objeto correcto
 
         return false;

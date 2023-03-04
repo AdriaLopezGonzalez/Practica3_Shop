@@ -15,10 +15,6 @@ MonoBehaviour:
   Slots:
   - Item: {fileID: 11400000, guid: 044b86c4beaea5948ba5d0ce8614fe2c, type: 2}
     Amount: 1
-  - Item: {fileID: 11400000, guid: 8c75d5b8d38beab459f0cac2652a0058, type: 2}
-    Amount: 1
-  - Item: {fileID: 11400000, guid: 9b17d03270675cd4c836d7d078c1b69b, type: 2}
-    Amount: 1
   - Item: {fileID: 11400000, guid: 51d5e616148f2ae4185e3b468c2b795e, type: 2}
     Amount: 4
   - Item: {fileID: 11400000, guid: f341c30dab91bc94eb1dda7f60d087b4, type: 2}
@@ -32,4 +28,8 @@ MonoBehaviour:
   - Item: {fileID: 11400000, guid: c55e86ab9d98b1149b0f178e4b300a6d, type: 2}
     Amount: 2
   - Item: {fileID: 11400000, guid: 83ab4c4e2045ef74bb3813e8a4dca0f4, type: 2}
+    Amount: 1
+  - Item: {fileID: 11400000, guid: 9b17d03270675cd4c836d7d078c1b69b, type: 2}
+    Amount: 1
+  - Item: {fileID: 11400000, guid: 8c75d5b8d38beab459f0cac2652a0058, type: 2}
     Amount: 1

@@ -12,9 +12,9 @@ public class Inventory : ScriptableObject
     [SerializeField]
     List<InventorySlot> Slots;
 
-    public static Action OnInventoryChanged;
+    public static Action <ShopFeatures> OnInventoryChanged;
 
-    public void AddItem(InventoryItem item)
+    public void AddItem(InventoryItem item, ShopFeatures currentFeatures)
     {
         if (Slots == null)
             Slots = new List<InventorySlot>();
@@ -31,7 +31,7 @@ public class Inventory : ScriptableObject
             Slots.Add(slot);
         }
 
-        OnInventoryChanged?.Invoke();
+        OnInventoryChanged?.Invoke(currentFeatures);
 
     }
 
@@ -50,7 +50,7 @@ public class Inventory : ScriptableObject
         return null;
     }
 
-    internal void ItemUsed(InventoryItem item)
+    internal void RemoveItem(InventoryItem item, ShopFeatures currentFeatures)
     {
         var slot = Slots.First(x=> x.Item == item);
 
@@ -61,6 +61,6 @@ public class Inventory : ScriptableObject
             Slots.Remove(slot);
         }
 
-        OnInventoryChanged?.Invoke();
+        OnInventoryChanged?.Invoke(currentFeatures);
     }
 }

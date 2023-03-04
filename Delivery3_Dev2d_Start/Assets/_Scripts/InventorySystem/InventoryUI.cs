@@ -11,6 +11,7 @@ public class InventoryUI : MonoBehaviour
     bool isPlayerInventory;
 
     public bool _IsPlayerInventory => isPlayerInventory;
+    public Inventory _Inventory => Inventory;
 
     private List<GameObject> UISlots = new List<GameObject>();
 
@@ -31,12 +32,6 @@ public class InventoryUI : MonoBehaviour
         Show(Inventory, currentFeatures);
     }
 
-    private void UpdateInventory()
-    {
-        ClearInventory();
-        Show(Inventory);
-    }
-
     private void ClearInventory()
     {
         foreach (var item in UISlots)
@@ -52,8 +47,6 @@ public class InventoryUI : MonoBehaviour
         {
             if (!isPlayerInventory)
             {
-                //Debug.Log(currentFeatures);
-                //Debug.Log(inventory.GetSlot(i).Item.Type);
                 if (inventory.GetSlot(i).Item.Type == currentFeatures.whatToSell)
                 {
                     MakeOneEntry(inventory.GetSlot(i));
@@ -63,14 +56,6 @@ public class InventoryUI : MonoBehaviour
             {
                 MakeOneEntry(inventory.GetSlot(i));
             }
-        }
-    }
-
-    void Show(Inventory inventory)
-    {
-        for (int i = 0; i < inventory.Length; i++)
-        {
-            MakeOneEntry(inventory.GetSlot(i));
         }
     }
 

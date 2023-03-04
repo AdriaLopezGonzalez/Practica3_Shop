@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -67,24 +66,24 @@ public class InventorySlotUI : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
             if (CheckItemDrop(currentFeatures, Item, rayData))
             {
-                if (_moneyManager.CheckTransaction(Item,currentFeatures))
+                if (_moneyManager.CheckTransaction(Item, currentFeatures))
                 {
                     _moneyManager.MoneyExchange(Item, currentFeatures);
-                    transform.SetParent(rayData.transform);
-                    transform.localPosition = Vector3.zero;
+
+                    ItemNewMama(rayData, currentFeatures);
                 }
+            //si es que si, cambio parent del objeto y cambio numeros segun precio del objeto
                 else
                 {
                     ItemReturnHome();
                 }
+            //si no, parent to mama y todo a su sitio again
             }
             else
             {
                 ItemReturnHome();
             }
 
-            //si es que si, cambio parent del objeto y cambio numeros segun precio del objeto
-            //si no, parent to mama y todo a su sitio again
         }
         else
         {
@@ -134,5 +133,12 @@ public class InventorySlotUI : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         transform.localPosition = Vector3.zero;
     }
 
+    private void ItemNewMama(RaycastHit2D rayData, ShopFeatures currentFeatures)
+    {
+        transform.SetParent(rayData.transform);
+        transform.localPosition = Vector3.zero;
+        _mama.GetComponent<InventoryUI>()._Inventory.RemoveItem(Item, currentFeatures);
+        rayData.transform.GetComponent<InventoryUI>()._Inventory.AddItem(Item, currentFeatures);
+    }
 
 }

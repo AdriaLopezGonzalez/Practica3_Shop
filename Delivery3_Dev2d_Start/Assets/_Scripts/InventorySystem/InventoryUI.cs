@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,6 +10,8 @@ public class InventoryUI : MonoBehaviour
     [SerializeField]
     bool isPlayerInventory;
 
+    public bool _IsPlayerInventory => isPlayerInventory;
+
     private List<GameObject> UISlots = new List<GameObject>();
 
     private void OnEnable()
@@ -23,6 +23,12 @@ public class InventoryUI : MonoBehaviour
     {
         Inventory.OnInventoryChanged -= UpdateInventory;
         InventoryManager.UpdateInventory -= UpdateInventory;
+    }
+
+    private void UpdateInventory(ShopFeatures currentFeatures)
+    {
+        ClearInventory();
+        Show(Inventory, currentFeatures);
     }
 
     private void UpdateInventory()
@@ -38,6 +44,26 @@ public class InventoryUI : MonoBehaviour
             Destroy(item);
         }
         UISlots.Clear();
+    }
+
+    void Show(Inventory inventory, ShopFeatures currentFeatures)
+    {
+        for (int i = 0; i < inventory.Length; i++)
+        {
+            if (!isPlayerInventory)
+            {
+                //Debug.Log(currentFeatures);
+                //Debug.Log(inventory.GetSlot(i).Item.Type);
+                if (inventory.GetSlot(i).Item.Type == currentFeatures.whatToSell)
+                {
+                    MakeOneEntry(inventory.GetSlot(i));
+                }
+            }
+            else
+            {
+                MakeOneEntry(inventory.GetSlot(i));
+            }
+        }
     }
 
     void Show(Inventory inventory)

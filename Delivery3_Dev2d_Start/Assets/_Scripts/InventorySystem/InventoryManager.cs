@@ -8,7 +8,7 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] GameObject InventoryShop;
     [SerializeField] GameObject InventoryPlayer;
 
-    public static Action UpdateInventory;
+    public static Action<ShopFeatures> UpdateInventory;
 
     public ShopFeatures CurrentFeatures { get; private set; }
 
@@ -28,7 +28,7 @@ public class InventoryManager : MonoBehaviour
     {
         InventoryShop.SetActive(true);
         InventoryPlayer.SetActive(true);
-        UpdateInventory?.Invoke();
+        UpdateInventory?.Invoke(CurrentFeatures);
     }
 
     public void HideInventories()

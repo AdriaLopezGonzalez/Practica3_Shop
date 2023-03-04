@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -15,7 +16,6 @@ public class InventorySlotUI : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     TextMeshProUGUI TextAmount;
 
     private Transform _mama;
-
 
     Canvas _canvas;
     GraphicRaycaster _graphicRaycaster;
@@ -60,20 +60,37 @@ public class InventorySlotUI : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
         if (rayData)
         {
-            Debug.Log("que estoy tocando? " + rayData.transform);
+            //Debug.Log("que estoy tocando? " + rayData.transform);
             //saber las shop features
             ShopFeatures currentFeatures = _canvas.GetComponent<InventoryManager>().CurrentFeatures;
-            if (CheckItemDrop(currentFeatures, transform.gameObject, rayData))
-            {
+            MoneyManager _moneyManager = _canvas.GetComponent<MoneyManager>();
 
+            if (CheckItemDrop(currentFeatures, Item, rayData))
+            {
+                if (_moneyManager.CheckTransaction(Item,currentFeatures))
+                {
+                    _moneyManager.MoneyExchange(Item, currentFeatures);
+                    transform.SetParent(rayData.transform);
+                    transform.localPosition = Vector3.zero;
+                }
+                else
+                {
+                    ItemReturnHome();
+                }
+            }
+            else
+            {
+                ItemReturnHome();
             }
 
             //si es que si, cambio parent del objeto y cambio numeros segun precio del objeto
             //si no, parent to mama y todo a su sitio again
         }
+        else
+        {
+            ItemReturnHome();
+        }
 
-        transform.SetParent(_mama);
-        transform.localPosition = Vector3.zero;
 
     }
 
@@ -85,32 +102,37 @@ public class InventorySlotUI : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         _inventory = slot.Inventory;
     }
 
-    private bool CheckItemDrop(ShopFeatures currentFeatures, GameObject dropObject, RaycastHit2D rayData)
+    private bool CheckItemDrop(ShopFeatures currentFeatures, InventoryItem dropItem, RaycastHit2D rayData)
     {
         var possibleDrop = rayData.transform.GetComponent<InventoryUI>();
 
         bool isAnInventory = possibleDrop != null;
 
         bool isADifferentInventory = possibleDrop != _mama.GetComponent<InventoryUI>();
-        Debug.Log("es diferente a de donde vengo? "+isADifferentInventory);
+        //Debug.Log("es diferente a de donde vengo? " + isADifferentInventory);
 
         bool droppingInRightInventory;
         if (currentFeatures.toBuy)
         {
-            droppingInRightInventory = possibleDrop.nidea == inventoryplayer;
+            droppingInRightInventory = possibleDrop._IsPlayerInventory;
         }
         else
         {
-            droppingInRightInventory = possibleDrop.nidea == inventoryshop;
+            droppingInRightInventory = !possibleDrop._IsPlayerInventory;
         }
         //comprobar si donde dejo el objeto se puede dejar(estamos vendiendo o comprando)
 
-        bool correctProductType = currentFeatures.whatToSell == dropObject.
-        //comprobar tambien si es tipo de objeto correcto
+        bool correctProductType = currentFeatures.whatToSell == dropItem.Type;
+        //comprobar tambien si el tipo de objeto es correcto
 
-        return false;
+        return isAnInventory && isADifferentInventory && droppingInRightInventory && correctProductType;
     }
 
+    private void ItemReturnHome()
+    {
+        transform.SetParent(_mama);
+        transform.localPosition = Vector3.zero;
+    }
 
 
 }

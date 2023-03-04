@@ -13,8 +13,8 @@ public class EndNode_SetShop : EndNode
     public override void Finish(GameObject talker)
     {
         base.Finish(talker);
-        ShowInventories?.Invoke();
         SetShopConditions?.Invoke(Features);
+        ShowInventories?.Invoke();
     }
 }
 
